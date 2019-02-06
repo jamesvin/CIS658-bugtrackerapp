@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+ <strong>User:</strong>
+ <%= (@bug.user.try(:fname) || "NA")+" "+(@bug.user.try(:lname) || "NA")%>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @bug.title %>
 </p>
