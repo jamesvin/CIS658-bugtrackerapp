@@ -1,37 +1,34 @@
 <%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :lname %>
-    <%= form.text_field :lname %>
-  </div>
-
-  <div class="field">
-    <%= form.label :fname %>
-    <%= form.text_field :fname %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :thumbnail %>
-    <%= form.text_field :thumbnail %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+ <% if user.errors.any? %>
+ <div id="error_explanation" class="alert alert-danger">
+ <strong><%= pluralize(user.errors.count, "error") %> prohibited this user f
+rom being saved:</strong>
+ <ul>
+ <% user.errors.full_messages.each do |message| %>
+ <li><%= message %></li>
+ <% end %>
+ </ul>
+ </div>
+ <% end %>
+ <div class="form-group">
+ <%= form.label :fname , "First Name"%>
+ <%= form.text_field :fname, id: :user_fname, class: "form-control" %>
+ </div>
+ <div class="form-group">
+ <%= form.label :lname, "Last Name" %>
+ <%= form.text_field :lname, id: :user_lname, class: "form-control" %>
+ </div>
+ <div class="form-group">
+ <%= form.label :email, "Email" %>
+ <%= form.text_field :email, id: :user_email, class: "form-control" %>
+ </div>
+ <div class="form-group">
+ <%= form.label :thumbnail, "Profile Image" %>
+ <%= form.file_field :thumbnail, id: :user_thumbnail, class: "form-control-file"
+ %>
+ </div>
+ <div class="actions">
+ <%= form.submit class: "btn btn-primary" %>
+ <%= link_to 'Cancel', users_path, class: "btn btn-danger" %>
+ </div>
 <% end %>

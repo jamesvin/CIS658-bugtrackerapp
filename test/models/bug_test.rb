@@ -22,7 +22,7 @@ class BugTest < ActiveSupport::TestCase
 
 
 test "issue_type must be valid" do
-  invalid_issue_types = [-10, -1, 2, 10]
+  invalid_issue_types = [1, -1, 2, 10]
   invalid_issue_types.each do |ist|
     begin
       @bug.issue_type = ist

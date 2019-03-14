@@ -26,7 +26,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "Email format must be valid" do
-    invalid_email_formats = ["vm.sdsd", "asasa", "gmail.com", "10"]
+    invalid_email_formats = ["vm@gmail.com", "asasa", "gmail.com", "10"]
     invalid_email_formats.each do |ief|
       begin
         @user.email = ief
